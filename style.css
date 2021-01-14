@@ -1,0 +1,154 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins',sans-serif;
+}
+
+.container{
+  height:100vh;
+  width:100%;
+  display: flex;
+}
+
+.left{
+  background-image: url('bg1.jpg');
+  background-size:cover;
+  background-color: #225127;
+  background-position: center;
+  background-blend-mode:lighten;
+  width:65%;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.right{
+  background: #2b5876;  /* fallback for old browsers */  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(top, #4e4376, #2b5876);
+  background: -o-linear-gradient(top, #4e4376, #2b5876);
+  background: linear-gradient(to bottom, #4e4376, #2b5876); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  width:35%;
+  position: relative;
+  display: flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.second{
+  height: 40%;
+  position: relative;
+}
+
+form{
+  width: 100%;
+  height:100px;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-left: 60px;
+  position:relative;
+}
+
+form::after,
+.second::before,
+.second::after{
+  content:'';
+  bottom:0;
+  position:absolute;
+  height:1.5px;
+  width:50%;
+  background: #888;
+}
+
+.second::before{
+  top:-70px;
+  left: 60px;
+  width: 75%;
+}
+
+.second::after{
+  bottom:30px;
+  left: 60px;
+  width: 75%;
+}
+
+.second > p:nth-of-type(1){
+  color:#ddd;
+  position:relative;
+  top:-20px;
+}
+
+.second > p{
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+}
+
+input{
+  background:none;
+  border:none;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #999;
+  outline: none;
+  transition: all 300ms linear;
+}
+
+input:focus{
+  color:#ccc;
+  letter-spacing: 2px;
+}
+
+button{
+  border:none;
+  width: 100px;
+  height: 100%;
+  font-size: 1.562rem;
+  color: #666;
+  cursor:pointer;
+}
+
+p{
+  line-height: 50px;
+  font-size:1rem;
+  margin-left: 60px;
+  color: #999;
+}
+
+.title{
+  color:#fff;
+  font-weight: bolder;
+  font-size: 1.375rem;
+}
+
+.main-infos{
+  height:40%;
+  width: 100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1{
+  font-size: 7.5rem;
+  color: #fff;
+}
+
+h2{
+  font-size:3.75rem;
+  color: #fff;
+  margin-left: 30px;
+}
+
+.main-infos p{
+  color: #fff;
+  margin:0;
+  line-height:normal;
+}
+
+.infos{
+  width: 300px;
+  text-align: center;
+}
