@@ -42,15 +42,15 @@ function getDatas(datas){
   const cityName = document.querySelector('h2')
   const spans = document.querySelectorAll('span')
   const icon = `http://openweathermap.org/img/wn/${datas.weather[0].icon}.png`
-
-  document.querySelector('img').src = icon
+  const img = document.querySelector('img')
+  img.src = `${icon}`
   document.querySelector('.cloud>p').textContent = datas.weather[0].main
 
   spans.forEach((item,i,arr)=>{
     arr[0].textContent = `${datas.clouds.all}%`
     arr[1].textContent = `${datas.main.humidity}%`
     arr[2].textContent = `${datas.wind.speed}km/h`
-    arr[3].textContent = `${datas.snow['1h']}mm/h`
+    arr[3].textContent = `${datas.rain['1h']}mm/h`
   })
 
   const kelvinToCelcius = Math.floor(datas.main.temp-273.15)
