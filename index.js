@@ -68,3 +68,27 @@ function getDatas(datas){
   temp.textContent = `${kelvinToCelcius}º`
   cityName.textContent = `${datas.name}`
 }
+
+(function selectedCity(){
+  const cities = document.querySelectorAll('.cities')
+  cities.forEach(item=>{
+    item.style.cursor = 'pointer'
+    item.addEventListener('click',function(){
+      switch (this.textContent) {
+        case 'Birmingham':
+          console.log(true);
+          apiHolder(this.textContent)
+          break;
+        case 'Manchester':
+          apiHolder(this.textContent)
+          break;
+        case 'New York':
+          apiHolder(this.textContent)
+          break;
+        case 'California':
+          apiHolder(this.textContent)
+          break;
+      }
+    })
+  })
+})()
