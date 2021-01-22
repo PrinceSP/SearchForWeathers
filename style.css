@@ -149,8 +149,9 @@ h2{
 }
 
 .infos{
-  width: 300px;
+  min-width: 200px;
   text-align: center;
+  margin-right: 30px;
 }
 
 img{
