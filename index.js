@@ -50,7 +50,18 @@ function getDatas(datas){
     arr[0].textContent = `${datas.clouds.all}%`
     arr[1].textContent = `${datas.main.humidity}%`
     arr[2].textContent = `${datas.wind.speed}km/h`
-    arr[3].textContent = `${datas.rain['1h']}mm/h`
+
+    const k = Object.keys(datas)
+
+    k.map((j,k,l)=>{
+      if (j.includes('rain')) {
+        console.log(j);
+        return arr[3].textContent = `${datas.rain['1h']}mm/h`
+      } else if(j.includes('snow')) {
+        return arr[3].textContent = `${datas.snow['1h']}mm/h`
+      }
+    })
+
   })
 
   const kelvinToCelcius = Math.floor(datas.main.temp-273.15)
