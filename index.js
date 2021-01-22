@@ -40,7 +40,20 @@ function getDatas(datas){
   console.log(datas);
   const temp = document.querySelector('h1')
   const cityName = document.querySelector('h2')
-  const celcius = (datas.main.temp-32)*5/9
-  temp.textContent = `${Math.floor(datas.main.temp)}º`
+  const spans = document.querySelectorAll('span')
+  const icon = `http://openweathermap.org/img/wn/${datas.weather[0].icon}.png`
+
+  document.querySelector('img').src = icon
+  document.querySelector('.cloud>p').textContent = datas.weather[0].main
+
+  spans.forEach((item,i,arr)=>{
+    arr[0].textContent = `${datas.clouds.all}%`
+    arr[1].textContent = `${datas.main.humidity}%`
+    arr[2].textContent = `${datas.wind.speed}km/h`
+    arr[3].textContent = `${datas.snow['1h']}mm/h`
+  })
+
+  const kelvinToCelcius = Math.floor(datas.main.temp-273.15)
+  temp.textContent = `${kelvinToCelcius}º`
   cityName.textContent = `${datas.name}`
 }
