@@ -52,16 +52,16 @@ function getDatas(datas){
     arr[2].textContent = `${datas.wind.speed}km/h`
 
     const k = Object.keys(datas)
+    arr[3].textContent = '0mm/h'
 
-    k.map((j,k,l)=>{
+
+    k.map(j=>{
       if (j.includes('rain')) {
-        console.log(j);
         return arr[3].textContent = `${datas.rain['1h']}mm/h`
-      } else if(j.includes('snow')) {
+      } else if (j.includes('snow')) {
         return arr[3].textContent = `${datas.snow['1h']}mm/h`
       }
     })
-
   })
 
   const kelvinToCelcius = Math.floor(datas.main.temp-273.15)
