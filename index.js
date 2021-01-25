@@ -52,21 +52,27 @@ function getDatas(datas){
     arr[2].textContent = `${datas.wind.speed}km/h`
 
     const k = Object.keys(datas)
-    arr[3].textContent = '0mm/h'
-
-
     k.map(j=>{
-      if (j.includes('rain')) {
-        return arr[3].textContent = `${datas.rain['1h']}mm/h`
-      } else if (j.includes('snow')) {
-        return arr[3].textContent = `${datas.snow['1h']}mm/h`
-      }
+      rainOrSnow(j,datas)
     })
   })
-
   const kelvinToCelcius = Math.floor(datas.main.temp-273.15)
   temp.textContent = `${kelvinToCelcius}º`
   cityName.textContent = `${datas.name}`
+}
+
+function rainOrSnow(paragraph,datas){
+  const p = document.querySelector('.rain_snow')
+  const rn = document.createElement('span')
+  if (paragraph.includes('rain')) {
+    p.textContent = 'Rain'
+    rn.textContent = `${datas.rain['1h']}mm/h`
+    p.append(rn)
+  } else if (paragraph.includes('snow')) {
+    p.textContent = 'Snow'
+    rn.textContent = `${datas.snow['1h']}mm/h`
+    p.append(rn)
+  }
 }
 
 (function selectedCity(){
