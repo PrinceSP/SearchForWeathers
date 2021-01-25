@@ -21,7 +21,6 @@ function apiHolder(city){
 
 function apiCall(url,res,rej){
   let datas = new XMLHttpRequest()
-
   datas.onreadystatechange = function (){
     if (datas.readyState === 4) {
       if (datas.status === 200) {
@@ -31,10 +30,25 @@ function apiCall(url,res,rej){
       }
     }
   }
-
   datas.open('get',url)
   datas.send()
 }
+
+(function getDates(){
+  const dates = document.querySelector('.date')
+  let rightDate = new Date()
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday']
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+  const s = rightDate.getTime()
+  const m = Math.floor(Math.round(s/1000)/60)%60
+  const h = rightDate.getHours()
+  const d = days[s/rightDate]
+  const d_no = rightDate.getDate()
+  const sdf=rightDate.getFullYear().toString()
+  dates.textContent = `${h}:${m} - ${d}, ${d_no} ${months[rightDate.getMonth()]} '${sdf.slice(2)}`
+  console.log(h);
+  setTimeout(getDates,1000)
+})()
 
 function getDatas(datas){
   console.log(datas);
